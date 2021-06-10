@@ -1,0 +1,30 @@
+.formBlock {
+    max-width: 300px;
+    padding: 10px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted #ff079a;
+    border-radius: 33px;
+
+    .input {
+        border-radius: 5px;
+        border: 2px solid dodgerblue;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 20px;
+        width: 80%;
+        height: 50px;
+    }
+
+    .button1 {
+        border-radius: 5px;
+        border: 2px solid dodgerblue;
+        margin: 20px;
+        width: 80%;
+        height: 50px;
+        background-color: lightblue;
+    }
+}
