@@ -105,7 +105,6 @@ export const ChatRoom = () => {
                         onKeyPress={() => {
                             dispatch(typeMessage());
                         }}
-                        //добавить функцию зачистки из списка печатающих
                         onChange={(e) => setMessage(e.currentTarget.value)}
                     />
                     <button
@@ -127,7 +126,7 @@ export const ChatRoom = () => {
                     </button>
                     <button
                         className={styles.button2}
-                        onClick={() => history.push("/")} //добавить функцию выхода из комнаты и зачиски данных пользователя
+                        onClick={() => history.push("/client-fora-soft-test")}
                     >
                         Exit from room
                     </button>

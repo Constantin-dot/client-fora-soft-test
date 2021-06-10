@@ -13,7 +13,7 @@ export const InitialForm = () => {
 
     const onClickHandler = () => {
         dispatch(setClientData("", name, room));
-        history.push("chat-room");
+        history.push("/client-fora-soft-test/chat-room");
     };
 
     return (
