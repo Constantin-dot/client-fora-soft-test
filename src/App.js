@@ -13,7 +13,10 @@ const App = React.memo(() => {
                     exact
                     render={() => <InitialForm />}
                 />
-                <Route path={"/chat-room"} render={() => <ChatRoom />} />
+                <Route
+                    path={"/client-fora-soft-test/chat-room"}
+                    render={() => <ChatRoom />}
+                />
                 <Route path={"*"} render={() => <div>404 NOT FOUND</div>} />
             </Switch>
         </div>
