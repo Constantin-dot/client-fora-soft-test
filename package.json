@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "http://Constantin-dot.github.io/client-fora-soft-test/",
+  "homepage": "http://Constantin-dot.github.io/client-fora-soft-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
