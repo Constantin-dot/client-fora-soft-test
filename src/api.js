@@ -3,12 +3,12 @@ import io from "socket.io-client";
 export const api = {
     socket: null,
     createConnection() {
-        this.socket = io("http://localhost:3009", {
-            transports: ["websocket"],
-        });
-        // this.socket = io("https://back-fora-soft-test.herokuapp.com", {
+        // this.socket = io("http://localhost:3009", {
         //     transports: ["websocket"],
         // });
+        this.socket = io("https://back-fora-soft-test.herokuapp.com", {
+            transports: ["websocket"],
+        });
     },
     destroyConnection(user) {
         this.socket?.disconnect(user);
