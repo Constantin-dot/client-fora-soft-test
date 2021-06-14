@@ -8,7 +8,10 @@ const initialState = {
     },
     messages: [],
     typingUsers: [],
+    onlineUsers: [],
 };
+
+//reducer
 
 export const chatReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -33,6 +36,14 @@ export const chatReducer = (state = initialState, action) => {
                 ],
             };
         }
+        case "remove-typing-user": {
+            return {
+                ...state,
+                typingUsers: state.typingUsers.filter(
+                    (u) => u.id !== action.user.id
+                ),
+            };
+        }
         case "delete-all-messages": {
             return { ...state, messages: [] };
         }
@@ -55,12 +66,21 @@ export const chatReducer = (state = initialState, action) => {
                 user: { id: "", name: "", room: "" },
                 messages: [],
                 typingUsers: [],
+                onlineUsers: [],
+            };
+        }
+        case "update-users-list": {
+            return {
+                ...state,
+                onlineUsers: action.users,
             };
         }
         default:
             return state;
     }
 };
+
+//actions
 
 const messagesReceived = (messages) => ({
     type: "messages-received",
@@ -77,7 +97,11 @@ const setUser = (id, name, room) => ({
 const setUserId = (userId) => ({ type: "set-userId", userId });
 const removeUser = () => ({ type: "remove-user" });
 const addTypingUser = (user) => ({ type: "add-typing-user", user });
+const removeTypingUser = (user) => ({ type: "remove-typing-user", user });
 const deleteAllMessages = () => ({ type: "delete-all-messages" });
+const updateUsersList = (users) => ({ type: "update-users-list", users });
+
+//thunks
 
 export const createConnection = () => (dispatch, getState) => {
     api.createConnection();
@@ -90,6 +114,16 @@ export const createConnection = () => (dispatch, getState) => {
         },
         (user) => {
             dispatch(addTypingUser(user));
+        },
+        (user) => {
+            dispatch(removeTypingUser(user));
+        },
+        () => {
+            dispatch(deleteAllMessages());
+            dispatch(removeUser());
+        },
+        (users) => {
+            dispatch(updateUsersList(users));
         }
     );
     let user = getState().chat.user;
@@ -102,7 +136,7 @@ export const setClientData = (id, name, room) => (dispatch) => {
     dispatch(setUser(id, name, room));
 };
 
-export const sendMessage = (message) => (dispatch) => {
+export const sendMessage = (message) => () => {
     api.sendMessage(message);
 };
 
@@ -110,12 +144,16 @@ export const typeMessage = () => (dispatch) => {
     api.typeMessage();
 };
 
-export const destroyConnection = () => (dispatch) => {
-    api.destroyConnection();
-    dispatch(removeUser());
+export const stopTypeMessage = () => (dispatch) => {
+    api.stopTypeMessage();
 };
 
-export const clientDeleteAllMessages = () => (dispatch) => {
-    api.clientDeleteAllMessages();
+export const destroyConnection = (user) => (dispatch) => {
+    api.destroyConnection(user);
+    dispatch(removeUser());
     dispatch(deleteAllMessages());
+};
+
+export const userLeftRoom = () => (dispatch) => {
+    api.leftRoom();
 };

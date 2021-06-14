@@ -1,19 +1,53 @@
 .chatWrapper {
-    .chatBlock {
-        min-width: 550px;
-        height: 400px;
+    margin-top: 30px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted #ff079a;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    .headerBlock {
+        width: 95%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        border: 2px dotted #ff079a;
-        border-radius: 5px;
-        padding: 10px;
+        margin-bottom: 10px;
+
+        .exitButton {
+            border-radius: 5px;
+            border: 2px solid dodgerblue;
+            width: 10%;
+            height: 100%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .exitButton:focus {
+            outline: none;
+            background: transparent;
+        }
+
+        .exitButton:hover {
+            background: #ff079a;
+        }
+    }
+
+    .chatBlock {
+        width: 95%;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
 
         .onlineUsersBlock {
             border-radius: 5px;
             border: 2px dotted rgb(30, 255, 49);
-            min-width: 50px;
-            height: 90%;
+            width: 20%;
+            height: 100%;
             padding: 10px;
             display: flex;
             flex-direction: column;
@@ -25,62 +59,87 @@
             border-radius: 5px;
             border: 2px dotted dodgerblue;
             padding: 10px;
-            height: 90%;
+            height: 100%;
             overflow-y: scroll;
-            width: 300px;
-            margin: 20px;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
             &::-webkit-scrollbar {
                 width: 0;
             }
 
             .mineMessage {
-                width: 90%;
+                width: 60%;
                 border-radius: 5px;
                 border: 2px dotted rgb(255, 101, 30);
                 padding: 10px;
-                margin: 5px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                align-self: flex-end;
             }
 
             .strangeMessage {
-                width: 90%;
+                width: 60%;
                 border-radius: 5px;
                 border: 2px dotted rgb(251, 255, 30);
                 padding: 10px;
-                margin: 5px;
+                box-sizing: border-box;
+                align-self: flex-start;
+                margin-bottom: 10px;
             }
 
             .adminMessage {
-                width: 90%;
+                width: 80%;
                 border-radius: 5px;
                 border: 2px dotted rgb(102, 123, 145);
                 padding: 10px;
-                margin: 5px;
+                box-sizing: border-box;
+                align-self: center;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .enterMessageBlock {
+        margin: 10px 0;
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .textarea {
+            border-radius: 5px;
+            border: 2px solid dodgerblue;
+            padding: 10px;
+            height: 20px;
+            width: 80%;
+            resize: none;
+            &::-webkit-scrollbar {
+                width: 0;
             }
         }
 
-        .enterMessageBlock {
-            margin-top: 12px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            // justify-content: space-between;
-            align-items: center;
+        .textarea:focus {
+            outline: none;
+            background: transparent;
+        }
 
-            .elem {
-                border-radius: 5px;
-                border: 2px solid dodgerblue;
-                padding: 10px;
-                min-height: 150px;
-            }
+        .enterButton {
+            border-radius: 5px;
+            border: 2px solid dodgerblue;
+            width: 10%;
+            height: 44px;
+            background: transparent;
+            cursor: pointer;
+        }
 
-            .button2 {
-                border-radius: 5px;
-                border: 2px solid dodgerblue;
-                margin: 9px;
-                width: 100%;
-                height: 54px;
-                background-color: lightblue;
-            }
+        .enterButton:focus {
+            outline: none;
+            background: transparent;
+        }
+
+        .enterButton:hover {
+            background: #ff079a;
         }
     }
 }

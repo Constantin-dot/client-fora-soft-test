@@ -19,12 +19,31 @@
         height: 50px;
     }
 
+    .input:focus {
+        outline: none;
+        background: transparent;
+    }
+
+    .errorText {
+        color: #ff4d4d;
+    }
+
     .button1 {
         border-radius: 5px;
         border: 2px solid dodgerblue;
         margin: 20px;
         width: 80%;
         height: 50px;
-        background-color: lightblue;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .button1:focus {
+        outline: none;
+        background: transparent;
+    }
+
+    .button1:hover {
+        background: #ff079a;
     }
 }

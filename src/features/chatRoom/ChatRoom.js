@@ -2,21 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import {
-    clientDeleteAllMessages,
     createConnection,
     destroyConnection,
     sendMessage,
+    stopTypeMessage,
     typeMessage,
+    userLeftRoom,
 } from "../../chat-reducer";
 import styles from "./ChatRoom.module.scss";
 
 export const ChatRoom = () => {
-    const { user, messages, typingUsers } = useSelector((state) => state.chat);
-    const onlineUsers = [
-        { id: 1, name: "Саша" },
-        { id: 2, name: "Маша" },
-        { id: 3, name: "Паша" },
-    ];
+    const { user, messages, typingUsers, onlineUsers } = useSelector(
+        (state) => state.chat
+    );
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,7 +22,7 @@ export const ChatRoom = () => {
     useEffect(() => {
         dispatch(createConnection());
         return () => {
-            dispatch(destroyConnection());
+            dispatch(destroyConnection(user));
         };
         // eslint-disable-next-line
     }, []);
@@ -51,15 +49,28 @@ export const ChatRoom = () => {
             return styles.strangeMessage;
         }
     };
+    const leftRoomHandler = () => {
+        dispatch(userLeftRoom());
+        history.push("/client-fora-soft-test");
+    };
 
     return (
         <div className={styles.chatWrapper}>
-            <h1>Chat page {user.room}</h1>
+            <div className={styles.headerBlock}>
+                <h2>Chat page {user.room}</h2>
+                <button className={styles.exitButton} onClick={leftRoomHandler}>
+                    Exit from room
+                </button>
+            </div>
             <div className={styles.chatBlock}>
                 <div className={styles.onlineUsersBlock}>
-                    {onlineUsers.map((user) => {
-                        return <div key={user.id}>{user.name}</div>;
-                    })}
+                    {onlineUsers ? (
+                        onlineUsers.map((user) => {
+                            return <div key={user.id}>{user.name}</div>;
+                        })
+                    ) : (
+                        <div></div>
+                    )}
                 </div>
                 <div
                     className={styles.messages}
@@ -98,39 +109,28 @@ export const ChatRoom = () => {
                     })}
                     <div ref={messagesAnchorRef} />
                 </div>
-                <div className={styles.enterMessageBlock}>
-                    <textarea
-                        className={styles.elem}
-                        value={message}
-                        onKeyPress={() => {
-                            dispatch(typeMessage());
-                        }}
-                        onChange={(e) => setMessage(e.currentTarget.value)}
-                    />
-                    <button
-                        className={styles.button2}
-                        onClick={() => {
-                            dispatch(sendMessage(message));
-                            setMessage("");
-                        }}
-                    >
-                        Send
-                    </button>
-                    <button
-                        className={styles.button2}
-                        onClick={() => {
-                            dispatch(clientDeleteAllMessages());
-                        }}
-                    >
-                        Delete all messages
-                    </button>
-                    <button
-                        className={styles.button2}
-                        onClick={() => history.push("/client-fora-soft-test")}
-                    >
-                        Exit from room
-                    </button>
-                </div>
+            </div>
+            <div className={styles.enterMessageBlock}>
+                <textarea
+                    className={styles.textarea}
+                    value={message}
+                    onKeyDown={() => {
+                        dispatch(typeMessage());
+                    }}
+                    onKeyUp={() => {
+                        dispatch(stopTypeMessage());
+                    }}
+                    onChange={(e) => setMessage(e.currentTarget.value)}
+                />
+                <button
+                    className={styles.enterButton}
+                    onClick={() => {
+                        dispatch(sendMessage(message));
+                        setMessage("");
+                    }}
+                >
+                    Send
+                </button>
             </div>
         </div>
     );
