@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/client-fora-soft-test/static/css/main.a6cfafd2.chunk.css",
-    "main.js": "/client-fora-soft-test/static/js/main.5bab65b4.chunk.js",
-    "main.js.map": "/client-fora-soft-test/static/js/main.5bab65b4.chunk.js.map",
-    "runtime-main.js": "/client-fora-soft-test/static/js/runtime-main.47f905a3.js",
-    "runtime-main.js.map": "/client-fora-soft-test/static/js/runtime-main.47f905a3.js.map",
-    "static/js/2.cfe6577f.chunk.js": "/client-fora-soft-test/static/js/2.cfe6577f.chunk.js",
-    "static/js/2.cfe6577f.chunk.js.map": "/client-fora-soft-test/static/js/2.cfe6577f.chunk.js.map",
-    "static/js/3.d6873485.chunk.js": "/client-fora-soft-test/static/js/3.d6873485.chunk.js",
-    "static/js/3.d6873485.chunk.js.map": "/client-fora-soft-test/static/js/3.d6873485.chunk.js.map",
+    "main.css": "/client-fora-soft-test/static/css/main.1167373e.chunk.css",
+    "main.js": "/client-fora-soft-test/static/js/main.1128cb7c.chunk.js",
+    "main.js.map": "/client-fora-soft-test/static/js/main.1128cb7c.chunk.js.map",
+    "runtime-main.js": "/client-fora-soft-test/static/js/runtime-main.61fe4a68.js",
+    "runtime-main.js.map": "/client-fora-soft-test/static/js/runtime-main.61fe4a68.js.map",
+    "static/js/2.00f794bb.chunk.js": "/client-fora-soft-test/static/js/2.00f794bb.chunk.js",
+    "static/js/2.00f794bb.chunk.js.map": "/client-fora-soft-test/static/js/2.00f794bb.chunk.js.map",
+    "static/js/3.50deb590.chunk.js": "/client-fora-soft-test/static/js/3.50deb590.chunk.js",
+    "static/js/3.50deb590.chunk.js.map": "/client-fora-soft-test/static/js/3.50deb590.chunk.js.map",
     "index.html": "/client-fora-soft-test/index.html",
-    "static/css/main.a6cfafd2.chunk.css.map": "/client-fora-soft-test/static/css/main.a6cfafd2.chunk.css.map",
-    "static/js/2.cfe6577f.chunk.js.LICENSE.txt": "/client-fora-soft-test/static/js/2.cfe6577f.chunk.js.LICENSE.txt"
+    "static/css/main.1167373e.chunk.css.map": "/client-fora-soft-test/static/css/main.1167373e.chunk.css.map",
+    "static/js/2.00f794bb.chunk.js.LICENSE.txt": "/client-fora-soft-test/static/js/2.00f794bb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.47f905a3.js",
-    "static/js/2.cfe6577f.chunk.js",
-    "static/css/main.a6cfafd2.chunk.css",
-    "static/js/main.5bab65b4.chunk.js"
+    "static/js/runtime-main.61fe4a68.js",
+    "static/js/2.00f794bb.chunk.js",
+    "static/css/main.1167373e.chunk.css",
+    "static/js/main.1128cb7c.chunk.js"
   ]
 }
